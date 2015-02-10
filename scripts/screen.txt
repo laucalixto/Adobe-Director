@@ -1,0 +1,64 @@
+global xS
+global yS
+
+on prepareMovie 
+  
+  --Pegar a resoluçao atual
+  xS = baScreenInfo("width")
+  yS = baScreenInfo("height")
+  
+end
+
+on startmovie
+xtRose = xtra("Rosetta").new()
+xtRose.register("targetmidia.com.br","590A33b8b5@")
+  
+  ajustarScreen()  
+  
+end
+
+
+--Calcula a proporçao do screen baseado na resoluçao atual e retorna 1 para 4:3 e 2 retorna  para 16:9
+on getProporcao (a, b)
+  prop = ((a).float / (b).float)
+  the floatPrecision = 0
+  return prop
+end getProporcao
+
+
+
+on ajustarScreen
+  
+  p = getProporcao(xS, yS)
+  
+  
+  if p <> (not(2)) and (xS >= 1280) then
+    -- ajusta o screen para resolucões com largura maior que 1280px e 16:9
+    baSetDisplay( 1280 , 800 , 32 , "temp" , false )
+    
+  else if p <> (not(1)) then
+   
+    razaoScreen = 1.6
+    heigthApp = xS / razaoScreen
+    
+    --calcula a altura do letter box para resoluções 4:3
+    bordaVertical = (yS - heigthApp) / 2 
+    
+    rS = yS - bordaVertical
+    
+    dS = rS - bordaVertical
+     -- ajusta o screen para resolucões 4:3
+    (the stage).rect = rect(0, bordaVertical, xS, yS)
+    (the stage).drawRect = rect(0, 0, xS, dS)
+    updateStage
+    
+  end  if
+  
+end
+
+
+on stopMovie
+  -- restaura a resoluçao inicial ao fechar
+  baSetDisplay( xS , yS , 32 , "temp" , false )
+end
+ 

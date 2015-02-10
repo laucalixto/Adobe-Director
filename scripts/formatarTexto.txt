@@ -1,0 +1,38 @@
+global nomeMember
+global MODOEDICAO
+
+on beginSprite me
+  
+  nomeMember = sprite(me.spriteNum).member.name
+  
+  member(nomeMember).fileName = the moviePath & "LinkedFiles\data\1_A.txt"
+  
+  
+  
+  member(nomeMember).font = "Arial"
+  member(nomeMember).fontsize = 18
+  member(nomeMember).fontstyle = [#plain]
+  member(nomeMember).boxType = #scroll
+  member(nomeMember).scrollTop = 1
+  member(nomeMember).Rect.left = 59
+  member(nomeMember).Rect.right = 1001
+  member(nomeMember).Rect.top = 639
+  member(nomeMember).Rect.bottom = 720
+  member(nomeMember).width = 913
+  member(nomeMember).height = 100
+  member(nomeMember).AntiAlias = #auto
+  member(nomeMember).antiAliasThreshold = 20
+  member(nomeMember).alignment = #left
+  member(nomeMember).fixedLineSpace = 20
+  member(nomeMember).charSpacing = 0.5
+  member(nomeMember).color = rgb("#8F8F8F")
+  member(nomeMember).bgColor = rgb("#FFFFFF")
+  member(nomeMember).topSpacing = 1
+  member(nomeMember).bottomSpacing = 2
+  member(nomeMember).editable = MODOEDICAO
+  
+  
+  nomeMember = 0
+  
+  
+end

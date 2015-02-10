@@ -1,0 +1,46 @@
+global fps011trava01A
+global fps011trava01B
+global fps011trava01C
+global fps011trava01D
+global fps011trava01E
+
+property spriteNum
+
+on mouseUp 
+  
+  
+  
+  if sprite(1).getVariable("fps11_1a") = "true" then
+    fps011trava01A = true
+
+  end if
+  
+  if sprite(1).getVariable("fps11_1b") = "true" then
+    fps011trava01B = true
+
+  end if
+  if sprite(1).getVariable("fps11_1c") = "true" then
+    fps011trava01C = true
+
+  end if
+  
+  if sprite(1).getVariable("fps11_1d") = "true" then
+    fps011trava01D = true
+
+  end if
+    if sprite(1).getVariable("fps11_1e") = "true" then
+    fps011trava01E = true
+
+  end if
+  
+
+
+  
+  go marker(0)
+  
+end
+
+
+ --if sprite(2).frame < sprite(2).member.framecount then
+ --   go to the frame
+ --end if
